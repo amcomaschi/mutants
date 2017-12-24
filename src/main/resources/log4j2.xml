@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <property name="dir">/home/ubuntu/mutantsapp/logs</property>
+    </Properties>    <Appenders>
+        <RollingFile name="infoFile" filename="${dir}/MutantsApp.log"
+                     filepattern="${dir}/%d{YYYYMMddHHmmss}-MutantsApp.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+            <Filters>
+
+                <!-- Now deny warn, error and fatal messages -->
+                <ThresholdFilter level="warn"  onMatch="DENY"   onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="DENY"   onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="fatal" onMatch="DENY"   onMismatch="NEUTRAL"/>
+
+                <!-- This filter accepts info, warn, error, fatal and denies debug/trace -->
+                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters><Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="2" />
+        </RollingFile>
+        <RollingFile name="errorFile" filename="${dir}/MutantsAppError.log"
+                     filepattern="${dir}/%d{YYYYMMddHHmmss}-MutantsAppError.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="2" />
+        </RollingFile>
+        <RollingFile name="traceFile" filename="${dir}/MutantsAppTrace.log"
+                     filepattern="${dir}/%d{YYYYMMddHHmmss}-MutantsAppTrace.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="2" />
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <Logger name="ar.com.mercadolibre.mutants" additivity="false" level="info">
+            <AppenderRef ref="errorFile" level="error" />
+            <AppenderRef ref="infoFile" level="info"/>
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="errorFile" level="error" />
+            <AppenderRef ref="infoFile" level="info"/>
+            <AppenderRef ref="traceFile" level="trace"/>
+        </Root>
+    </Loggers>
+</Configuration>
