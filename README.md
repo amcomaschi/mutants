@@ -1,5 +1,7 @@
 # Ejercicio Mutantes - Mercadolibre
 
+[![Build Status](https://travis-ci.org/amcomaschi/mutants.svg?branch=master)](https://travis-ci.org/amcomaschi/mutants)
+
 Ejercicio práctico para MercadoLibre. 
 
 Se puede ver una version estable del proyecto aqui:
