@@ -4,7 +4,7 @@ Ejercicio práctico para MercadoLibre.
 
 Se puede ver una version estable del proyecto aqui:
 
-- [servicio es mutante](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/mutant/).
+- [servicio es mutante](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/mutants/).
 - [servicio estadisticas](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/stats)
 
 ![Magneto_image](doc/images/magneto.jpg)
