@@ -98,7 +98,7 @@ public class DbServiceImpl implements DbService {
         } catch (MongoException me) {
             logger.error("Error while getting count of dna analized: " + me.getMessage());
             me.printStackTrace();
-            throw new MutantDbException("Error while getting count of dna analized: " + me.getCause().getMessage(), me.getCode());
+            throw new MutantDbException("Error while getting count of dna analized: " + me.getMessage(), me.getCode());
         }
 
         return count;
