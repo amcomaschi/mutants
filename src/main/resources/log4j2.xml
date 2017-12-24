@@ -2,7 +2,7 @@
 <Configuration status="WARN">
 
     <Properties>
-        <property name="dir">/home/ubuntu/mutantsapp/logs</property>
+        <property name="dir">./logs</property>
     </Properties>    <Appenders>
         <RollingFile name="infoFile" filename="${dir}/MutantsApp.log"
                      filepattern="${dir}/%d{YYYYMMddHHmmss}-MutantsApp.log">
