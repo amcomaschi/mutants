@@ -2,7 +2,10 @@
 
 Ejercicio práctico para MercadoLibre. 
 
-Se puede ver una version estable del proyecto [aqui](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/).
+Se puede ver una version estable del proyecto aqui:
+
+- [servicio es mutante](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/mutant/).
+- [servicio estadisticas](http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/stats)
 
 ![Magneto_image](doc/images/magneto.jpg)
 
@@ -27,7 +30,7 @@ Se puede ver una version estable del proyecto [aqui](http://ec2-13-58-238-161.us
 ### Especificaciones
 
 Los archivos correspondientes a la especificación del ejercicio se encuentran en la carpeta `spec`. Dentro de ella
-se encuentra [un pdf](./ejercicio/Examen-Mercadolibre/2017.pdf) que describe la funcionalidades y requisitos esperados
+se encuentra [un pdf](./spec/Examen%20Mercadolibre%202017.pdf) que describe la funcionalidades y requisitos esperados
 que contenga el proyecto.
 
 ### Implementacion y tecnologias usadas
@@ -62,7 +65,7 @@ _[DbServiceImpl](./src/main/java/ar/com/mercadolibre/mutants/services/impl/DbSer
 Los distintos logs de la aplicacion se generan en el directorio del proyecto.
 En caso de querer loguear en otra ubicacion es necesario actualizar la propiedad _*dir*_ del archivo de configuracion _[log4j2](./src/main/resources/log4j2.xml)_.
 
-Clonar este repositorio: 
+Clonar este repositorio: https://github.com/amcomaschi/mutants
 
 Una vez levantada la aplicacion se puede realizar invocaciones a la API.
 
@@ -71,6 +74,7 @@ El puerto por defecto de la API es 4567.
 ### Uso
 
 Para iniciar la aplicación, asegúrese de cumplir con las instrucciones anteriores. 
+
 Una vez listo, ejecutar la clase principal _MutantsApp_ en su IDE preferido y espere hasta que se inicie la aplicación.
 
 Tambien se puede iniciar la aplicacion con el siguiente comando en linea de comandos posicionandose en el directorio raiz
@@ -83,13 +87,13 @@ mvn exec:java -Dexec.mainClass="ar.com.mercadolibre.mutants.MutantsApp"
 
 URL local: http://localhost:4567
 
-URL hosteada en Amazon: http://
+URL hosteada en Amazon: http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567
 
 ### Servicios
 #### Es mutante
 
 Request: 
-- POST https://amazon.com/mutants
+- POST http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/mutants/
 
 Request body (caso ADN mutante):
 
@@ -117,15 +121,15 @@ Response:
 #### Estadisticas
 
 Request: 
-- GET http://amazon/stats
+- GET http://ec2-13-58-238-161.us-east-2.compute.amazonaws.com:4567/stats
 
 Response: 200 (application/json)
 
 ```
 {
-	"count_mutant_dna": 1,
-	"count_human_dna": 0,
-	"ratio": 1.0
+    count_mutant_dna: 4,
+    count_human_dna: 1,
+    ratio: 0.8
 }
 ```
 
@@ -137,8 +141,9 @@ Para la ejecucion de los test automaticos utilice jUnit.
 
 Para poder probar los componentes de base de datos utilice una base de datos MongoDB embebida, esta se levanta durante 
 el test y luego se destruye.
-De esta forma no necesito tener una instancia de base de datos levantada, ni hosteada en algun servidor. Ademas me aseguro
-de que la base de datos siempre este consistente en cada ejecucion de los test.
+De esta forma no necesito tener una instancia de base de datos levantada, ni hosteada en algun servidor.
+
+Ademas me aseguro de que la base de datos siempre este consistente en cada ejecucion de los test.
 
 #### Scripts
 
