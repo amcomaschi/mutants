@@ -115,6 +115,8 @@
                         <format>html</format>
                         <format>xml</format>
                     </formats>
+                    <aggregate>true</aggregate>
+                    <outputDirectory>/codecoverage</outputDirectory>
                     <check />
                 </configuration>
             </plugin>
