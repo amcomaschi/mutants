@@ -116,7 +116,7 @@
                         <format>xml</format>
                     </formats>
                     <aggregate>true</aggregate>
-                    <outputDirectory>/coverage</outputDirectory>
+                    <outputDirectory>./coverage</outputDirectory>
                     <check />
                 </configuration>
             </plugin>
