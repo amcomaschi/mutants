@@ -32,12 +32,7 @@ public class IsMutantHandler extends AbstractRequestHandler<MutantRequest> {
             isMutant = ((MutantService) service).isMutant(value.getDna());
         } catch (MutantServiceException e) {
             logger.error("Error processing IsMutant request ", e);
-
-            // Codigo 11000 es duplicado en base de datos, si es duplicado ya lo inserte en otro momento, continuo.
-            // Si es distinto de 11000m no lo pude insertar en la base de datos, salgo por error.
-            if (e.getCode() != 11000) {
                 throw new HandlerException(e.getMessage());
-            }
         }
 
 

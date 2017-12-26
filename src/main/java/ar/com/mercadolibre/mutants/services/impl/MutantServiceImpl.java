@@ -41,7 +41,10 @@ public class MutantServiceImpl implements MutantService {
 
         } catch (MutantDbException e) {
             logger.error("Error ocurred invoking database service: " + e);
-            throw new MutantServiceException(e.getMessage(), e.getCode());
+
+            if(e.getCode() != 11000) {
+                throw new MutantServiceException("Error ocurred invoking database service: " + e.getMessage(), e.getCode());
+            }
         }
 
         return isMutant;
