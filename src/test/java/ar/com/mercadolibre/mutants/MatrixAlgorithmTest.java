@@ -1,6 +1,6 @@
 package ar.com.mercadolibre.mutants;
 
-import ar.com.mercadolibre.mutants.detector.MatrixAlgorithm;
+import ar.com.mercadolibre.mutants.detector.matrix.MatrixAlgorithm;
 import ar.com.mercadolibre.utils.DataGenerator;
 import org.junit.jupiter.api.Test;
 

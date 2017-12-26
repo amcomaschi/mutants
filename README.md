@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/amcomaschi/mutants.svg?branch=master)](https://travis-ci.org/amcomaschi/mutants)
-
+[![codecov](https://codecov.io/gh/amcomaschi/mutants/branch/master/graph/badge.svg)](https://codecov.io/gh/amcomaschi/mutants)
 # Ejercicio Mutantes - Mercadolibre
 
 Ejercicio práctico para MercadoLibre. 
@@ -25,7 +25,6 @@ Se puede ver una version estable del proyecto aqui:
 - [Test](#test)
   - [Automaticos](#automaticos)
   - [Scripts](#scripts)
-  - [Cobertura](#covertura)
 
 ## Ejercicio
 
@@ -163,7 +162,3 @@ en el archivo [dna-mutant.json](./scripts/invoke-mutants.sh).
 
 La cantidad de peticiones en paralelo que se quieren ejecutar se corresponde con el valor que se encuentra seguido del 
 comando _seq_: seq *1000* | parallel....
-
-#### Cobertura
-
-La cobertura del codigo es del 89%.

@@ -1,6 +1,8 @@
-package ar.com.mercadolibre.mutants.detector;
+package ar.com.mercadolibre.mutants.detector.matrix;
 
-public class MatrixAlgorithm {
+import ar.com.mercadolibre.mutants.detector.Detector;
+
+public class MatrixAlgorithm implements Detector {
 
     private static final String[] MUTANT_DNA_SEQUENCES = {"AAAA", "CCCC", "GGGG", "TTTT"};
     public int N;
@@ -72,5 +74,14 @@ public class MatrixAlgorithm {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        String[] adn = {"ATGCGA","CCGTTC","TTATGT","AGAAGG","CACCTA","TCACTG"};
+
+        MatrixAlgorithm ma = new MatrixAlgorithm();
+
+        boolean mutant = ma.analyzeDNA(adn);
+        System.out.println("Mutante: " + mutant);
     }
 }

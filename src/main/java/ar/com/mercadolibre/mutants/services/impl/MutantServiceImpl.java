@@ -1,6 +1,7 @@
 package ar.com.mercadolibre.mutants.services.impl;
 
-import ar.com.mercadolibre.mutants.detector.MatrixAlgorithm;
+import ar.com.mercadolibre.mutants.detector.Detector;
+import ar.com.mercadolibre.mutants.detector.gst.GeneralizedSuffixTree;
 import ar.com.mercadolibre.mutants.exceptions.MutantDbException;
 import ar.com.mercadolibre.mutants.exceptions.MutantServiceException;
 import ar.com.mercadolibre.mutants.model.Dna;
@@ -25,10 +26,10 @@ public class MutantServiceImpl implements MutantService {
 
     public boolean isMutant(String[] dna) throws MutantServiceException {
 
-        logger.info("Checking dna through matrix algorithm");
+        logger.info("Checking dna with mutant detector");
 
-        MatrixAlgorithm ma = new MatrixAlgorithm();
-        boolean isMutant = ma.analyzeDNA(dna);
+        Detector detector = new GeneralizedSuffixTree();
+        boolean isMutant = detector.analyzeDNA(dna);
 
         logger.info("Dna processed, result: " + (isMutant? "mutant": "human"));
 
