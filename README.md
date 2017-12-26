@@ -25,6 +25,7 @@ Se puede ver una version estable del proyecto aqui:
 - [Test](#test)
   - [Automaticos](#automaticos)
   - [Scripts](#scripts)
+  - [Cobertura](#cobertura)
 
 ## Ejercicio
 
@@ -162,3 +163,10 @@ en el archivo [dna-mutant.json](./scripts/invoke-mutants.sh).
 
 La cantidad de peticiones en paralelo que se quieren ejecutar se corresponde con el valor que se encuentra seguido del 
 comando _seq_: seq *1000* | parallel....
+
+#### Cobertura
+
+Si bien la cobertura de codigo en la herramienta Codecov muestra un 70%, ejecutando los test localmente con la herramienta
+Jacoco nos da 78%.
+
+![coverage](./doc/images/coverage.png)
